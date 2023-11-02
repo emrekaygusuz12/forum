@@ -14,9 +14,12 @@ class ThreadSeeder extends Seeder
     public function run(): void
     {
         
-        //  $a = new Thread;
-        //  $a -> name = "2 people killed in a car accident";
-        //  $a -> category = "Crime";
-        //  $a -> save();
+        $a = new Thread;
+        $a -> title = "title";
+        $a -> content = "content";
+        $a -> user_id = 1;
+        $a -> category_id = 1;
+        $a -> post_id = 1;
+        $a -> save();
     }
 }

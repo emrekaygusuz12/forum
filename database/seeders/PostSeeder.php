@@ -13,7 +13,12 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        //  $a = new Post;
-        //  $a -> save();
+        $a = new Post;
+        $a -> content = 'content';
+        $a -> user_id = 1;
+        $a -> save();
     }
+
+
+
 }

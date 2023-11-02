@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    public function thread(){
+        return $this->belongsTo(Thread::class);
+    }
 }

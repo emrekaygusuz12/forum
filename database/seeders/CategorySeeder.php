@@ -13,9 +13,10 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //  $a = new Category;
-        //  $a -> name = "Crime";
-        //  $a -> description = "A crime is a deliberate act that causes physical or psychological harm";
-        //  $a -> save();
+         $a = new Category;
+         $a -> name = "Crime";
+         $a -> description = "A crime is a deliberate act that causes physical or psychological harm";
+         //$a -> thread_id = 1;
+         $a -> save();
     }
 }
