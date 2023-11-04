@@ -21,5 +21,9 @@ class Thread extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function category_threads(){
+        return $this->belongsToMany(Category_Thread::class);
+    }
+
 
 }

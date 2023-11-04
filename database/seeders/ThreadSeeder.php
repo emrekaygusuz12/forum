@@ -21,5 +21,6 @@ class ThreadSeeder extends Seeder
         $a -> category_id = 1;
         $a -> post_id = 1;
         $a -> save();
+        // $a -> category()->attach(12);
     }
 }

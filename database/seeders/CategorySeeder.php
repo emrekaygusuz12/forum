@@ -15,8 +15,10 @@ class CategorySeeder extends Seeder
     {
          $a = new Category;
          $a -> name = "Crime";
-         $a -> description = "A crime is a deliberate act that causes physical or psychological harm";
-         //$a -> thread_id = 1;
+         $a -> description = "description";
          $a -> save();
+        //  $a -> threads()->attach(1);
+        //  $a -> categories()->attach(1);
+         
     }
 }
