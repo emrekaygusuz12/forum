@@ -17,7 +17,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'content' => fake()->paragraph(2,True),
+            'user_id'=> \App\Models\User::inRandomOrder()->first()->id,
         ];
     }
 }

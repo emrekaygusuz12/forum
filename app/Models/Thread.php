@@ -10,6 +10,10 @@ class Thread extends Model
     use HasFactory;
 
     public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function category(){
         return $this->hasMany(Category::class);
     }
 
@@ -21,9 +25,6 @@ class Thread extends Model
         return $this->hasMany(Post::class);
     }
 
-    public function category_threads(){
-        return $this->belongsToMany(Category_Thread::class);
-    }
 
 
 }

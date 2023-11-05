@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\Thread;
+
 
 class CategorySeeder extends Seeder
 {
@@ -14,11 +16,14 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
          $a = new Category;
-         $a -> name = "Crime";
-         $a -> description = "description";
+         $a -> name = "Sports";
+         $a -> description = "Liverpool";
          $a -> save();
-        //  $a -> threads()->attach(1);
-        //  $a -> categories()->attach(1);
-         
+         $a -> category_id = 1;
+         $a -> thread_id = 1;
+
+         $a = Category::factory()
+                    ->has(Thread::factory()->count(10), 'threads')
+                    ->create(); 
     }
 }

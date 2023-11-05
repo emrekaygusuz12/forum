@@ -9,10 +9,6 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function category_threads(){
-        return $this->belongsToMany(Category_Thread::class);
-    }
-
     public function threads(){
         return $this->belongsToMany(Thread::class);
     }

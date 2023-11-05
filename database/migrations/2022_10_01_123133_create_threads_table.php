@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
+            $table->longText('content');
             $table->bigInteger('user_id')->unsigned(); //holds the user id for thread
             $table->bigInteger('category_id')->unsigned(); //holds the category id for thread
             $table->bigInteger('post_id')->unsigned(); //holds the category id for thread

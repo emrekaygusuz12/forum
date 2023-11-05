@@ -13,7 +13,7 @@ class User extends Model
         return $this->hasMany(Post::class);
     }
 
-    public function thread(){
+    public function threads(){
         return $this->belongsTo(Thread::class);
     }
 }

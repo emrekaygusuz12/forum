@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_threads', function (Blueprint $table) {
+        Schema::create('category_thread', function (Blueprint $table) {
             $table->primary(['category_id', 'thread_id']);
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('thread_id')->unsigned();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category__threads');
+        Schema::dropIfExists('category_threads');
     }
 };

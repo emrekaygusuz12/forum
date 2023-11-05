@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Thread;
+use App\Models\Category;
 
 class ThreadSeeder extends Seeder
 {
@@ -21,6 +22,10 @@ class ThreadSeeder extends Seeder
         $a -> category_id = 1;
         $a -> post_id = 1;
         $a -> save();
-        // $a -> category()->attach(12);
+        $a -> categories()->attach(1);
+
+        $a = Thread::factory()
+                    ->has(Category::factory()->count(10), 'categories')
+                    ->create(); 
     }
 }

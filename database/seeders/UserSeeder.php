@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Post;
 
 class UserSeeder extends Seeder
 {
@@ -14,14 +15,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $a = new User;
-        $a -> name = "James";
+        $a -> name = "James Hutton";
         $a -> email = "james.smith@gmail.com";
         $a -> password = "smithy90james";
         $a -> save();
 
-
-        User::factory()->count(50)->create();
+        User::factory()->count(10)->create();
     }
-
-    
 }
