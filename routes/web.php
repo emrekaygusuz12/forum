@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/forum', function () {
-    return view('forum');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+
 
 /**
  * navigates to see all the users
