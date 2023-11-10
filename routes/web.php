@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * navigates to see all the users
+ */
+Route::get('/users', [UserController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -13,9 +13,9 @@ class Thread extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function category(){
-        return $this->hasMany(Category::class);
-    }
+    // public function category(){
+    //     return $this->hasMany(Category::class);
+    // }
 
     public function users(){
         return $this->hasMany(User::class);
