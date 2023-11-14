@@ -36,7 +36,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 
@@ -58,12 +57,3 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
-
-/**
-     * protecting routes 
-     * automatically redirecting users to a login page if they
-     * are not logged in.
-     */
-    Route::get('/secret', function(){
-        return "secret";
-})->middleware(["auth"]);

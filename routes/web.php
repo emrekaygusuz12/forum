@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,16 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * route to main page
+ */
 Route::get('/', function () {
     return view('welcome');
 });
-
-
 
 /**
  * navigates to see all the users
  */
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/users/{id}', [UserController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

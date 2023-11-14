@@ -20,6 +20,6 @@ class UserSeeder extends Seeder
         $a -> password = "smithy90james";
         $a -> save();
 
-        User::factory()->count(10)->create();
+        User::factory()->count(30)->create();
     }
 }
