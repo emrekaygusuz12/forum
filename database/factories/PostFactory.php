@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -18,7 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'content' => fake()->paragraph(2,True),
-            'user_id'=> \App\Models\User::inRandomOrder()->first()->id,
+            'user_id'=> User::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Post;
+use App\Models\Category;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Thread>
@@ -20,9 +23,9 @@ class ThreadFactory extends Factory
             'title' => fake()->sentence(),
             'content' => fake()->paragraph(),
 
-            'user_id'=> \App\Models\User::inRandomOrder()->first()->id,
-            'category_id'=> \App\Models\Category::inRandomOrder()->first()->id,
-            'post_id'=> \App\Models\Post::inRandomOrder()->first()->id,
+            'user_id'=> User::inRandomOrder()->first()->id,
+            'category_id'=> Category::inRandomOrder()->first()->id,
+            'post_id'=> Post::inRandomOrder()->first()->id,
         ];
     }
 }

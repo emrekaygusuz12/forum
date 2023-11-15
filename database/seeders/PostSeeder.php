@@ -20,7 +20,7 @@ class PostSeeder extends Seeder
         $a -> save();
 
         $a = Post::factory()
-                    ->has(User::factory()->count(10), 'users')
+                    ->has(User::factory()->count(10), 'user')
                     ->create(); 
 
         Post::factory()->count(10)->create();

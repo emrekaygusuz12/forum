@@ -20,8 +20,8 @@ class CategoryThreadsFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id'=> \App\Models\Category::inRandomOrder()->first()->id,
-            'thread_id'=> \App\Models\Thread::inRandomOrder()->first()->id,
+            'category_id'=> Category::inRandomOrder()->first()->id,
+            'thread_id'=> Thread::inRandomOrder()->first()->id,
         ];
     }
 }
