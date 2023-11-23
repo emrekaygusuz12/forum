@@ -29,7 +29,15 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required|max:255',
+            'user_id' => 'required|integer', 
+            'category_id' => 'required|integer', 
+            'post_id' => 'required|integer', 
+        ]);
+
+        return "Passed validation";
     }
 
     /**

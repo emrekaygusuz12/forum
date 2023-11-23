@@ -30,7 +30,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request['name']);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'date_of_birth' => 'nullable|date', 
+        ]);
+
+        return "Passed validation";
     }
 
     /**
