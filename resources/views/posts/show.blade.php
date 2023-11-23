@@ -3,9 +3,5 @@
 @section('title', 'Post Details')
 
 @section('content')
-<ul>
-    <li> Name: {{$post->content}}</li>
-
-</ul>
-
+    <p> Name: {{$post->content}}</p>
 @endsection

@@ -3,10 +3,7 @@
 @section('title', 'User Details')
 
 @section('content')
-<ul>
-    <li> Name: {{$user->name}}</li>
-    <li> E-mail: {{$user->email}}</li>
-    <li> Date of Birth: {{$user->date_of_birth}}</li>
-</ul>
-
+        <p> Name: {{$user->name}}</p>
+        <p> E-mail: {{$user->email}}</p>
+        <p> Date of Birth: {{$user->date_of_birth}}</p>
 @endsection

@@ -3,10 +3,6 @@
 @section('title', 'Thread Details')
 
 @section('content')
-<ul>
-    <li> Name: {{$thread->title}}</li>
-    <li> Content: {{$thread->content}}</li>
-
-</ul>
-
+    <p> Title: {{$thread->title}}</p>
+    <p> Content: {{$thread->content}}</p>
 @endsection
