@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Database\Seeder;
+use App\Models\Thread;
 
-class UserController extends Controller
+class ThreadController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.index', ['users' => $users]);
+        $threads = Thread::all();
+        return view('threads.index', ['threads' => $threads]);
     }
 
     /**
@@ -38,8 +37,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail($id);
-        return view('users.show', ['user' => $user]);
+        $thread = Thread::findOrFail($id);
+        return view('threads.show', ['thread' => $thread]);
     }
 
     /**

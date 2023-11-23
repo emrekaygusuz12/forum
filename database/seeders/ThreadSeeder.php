@@ -22,8 +22,7 @@ class ThreadSeeder extends Seeder
         $a -> category_id = 1;
         $a -> post_id = 1;
         $a -> save();
-        // $a -> categories()->attach(1);
-        // $a -> categories()->attach(2);
+        
 
         $a = Thread::factory()
                     ->has(Category::factory()->count(10), 'categories')

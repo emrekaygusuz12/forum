@@ -15,7 +15,7 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         $a = new Post;
-        $a -> content = "This is the first content.";
+        $a -> content = "This is the first post.";
         $a -> user_id = 1;
         $a -> save();
 
