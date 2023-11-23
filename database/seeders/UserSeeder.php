@@ -15,12 +15,12 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $a = new User;
-        $a -> name = "James Hutton";
-        $a -> email = "james.smith@gmail.com";
-        $a -> password = "smithy90james";
+        $a -> name = "Emre Kaygusuz";
+        $a -> email = "kaygusuz.emreuk@gmail.com";
+        $a -> password = "emre12345";
         $a -> date_of_birth = "28-06-1998";
         $a -> save();
 
-        User::factory()->count(30)->create();
+        User::factory()->count(10)->create();
     }
 }

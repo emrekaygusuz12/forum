@@ -3,5 +3,6 @@
 @section('title', 'Post Details')
 
 @section('content')
-    <p> Name: {{$post->content}}</p>
+    <p> {{$post->content}}</p> <br>
+        <a href="/posts">return</a>
 @endsection

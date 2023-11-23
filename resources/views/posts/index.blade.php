@@ -10,5 +10,6 @@
 
         @endforeach
     </ul>
-    <a href="{{route('posts.create')}}"> Create Post </a>
+    <a href="{{route('posts.create')}}"> Create Post </a> <br> <br>
+    <a href="/">return</a>
 @endsection
