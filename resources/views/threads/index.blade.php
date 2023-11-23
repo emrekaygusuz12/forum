@@ -11,4 +11,5 @@
 
         @endforeach
     </ul>
+    <a href="{{route('threads.create')}}"> Create Thread </a>
 @endsection

@@ -25,19 +25,39 @@ Route::get('/', function () {
 });
 
 /**
- * navigates to see all the users, posts and threads
+ * navigates to see all the users
  */
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
-Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
 
-Route::get('posts', [PostController::class, 'index']);
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-Route::get('/posts/{id}', [PostController::class, 'show']);
+Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 
-Route::get('threads', [ThreadController::class, 'index']);
 
-Route::get('/threads/{id}', [ThreadController::class, 'show']);
+/**
+ * navigates to see all the posts
+ */
+ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+ Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+ 
+ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+ 
+ Route::get('/posts/{id}', [PostController::class, 'show'])->name('post.show');
+
+/**
+ * navigates to see all the threads
+ */
+Route::get('/threads', [ThreadController::class, 'index'])->name('threads.index');
+
+Route::get('threads/create', [ThreadController::class, 'create'])->name('threads.create');
+
+Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
+
+Route::get('/threads/{id}', [ThreadController::class, 'show'])->name('threads.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
