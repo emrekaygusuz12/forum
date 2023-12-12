@@ -6,6 +6,9 @@
     <body>
         <h1> @yield('title')</h1>
     </body>
+    @if (session('message'))
+        <p><b>{{session('message')}}</b></p>
+        @endif
     @if ($errors->any())
     <div>
         Errors:

@@ -34,7 +34,13 @@ class PostController extends Controller
             'user_id' => 'required|integer',  
         ]);
 
-        return "Passed validation";
+        $a = new Post;
+        $a ->content = $validatedData['content'];
+        $a ->user_id = $validatedData['user_id'];
+        $a ->save();
+
+        session()->flash('message', 'Post was created.');
+        return redirect()->route('posts.index');
     }
 
     /**

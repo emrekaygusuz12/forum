@@ -37,7 +37,16 @@ class ThreadController extends Controller
             'post_id' => 'required|integer', 
         ]);
 
-        return "Passed validation";
+        $a = new Thread;
+        $a ->title = $validatedData['title'];
+        $a ->content = $validatedData['content'];
+        $a ->user_id = $validatedData['user_id'];
+        $a ->category_id = $validatedData['category_id'];
+        $a ->post_id = $validatedData['post_id'];
+        $a -> save();
+
+        session()->flash('message', 'Thread was created.');
+        return redirect()->route('threads.index');
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('layouts.threads')
+@extends('layouts.app')
 
 @section('title', 'Threads')
 

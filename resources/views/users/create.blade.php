@@ -7,6 +7,7 @@
         @csrf
         <p>Name: <input type="text" name="name"></p>
         <p>Email: <input type="text" name="email"></p>
+        <p>Password <input type="text" name="password"></p>
         <p>Date of Birth: <input type="text" name="date_of_birth"></p>
         <input type="submit" value="Submit">
         <a href="{{route('users.index') }}">Cancel</a>

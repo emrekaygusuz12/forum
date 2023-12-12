@@ -32,13 +32,24 @@ class UserController extends Controller
     {
         //dd($request['name']);
 
+        
+
         $validatedData = $request->validate([
-            'name' => 'required|alpha|max:255',
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/',
             'email' => 'required|email|max:255',
+            'password' => 'required|max:8',
             'date_of_birth' => 'nullable|date', 
         ]);
 
-        return "Passed validation";
+        $a = new User;
+        $a ->name = $validatedData['name'];
+        $a ->email = $validatedData['email'];
+        $a ->password = $validatedData['password'];
+        $a ->date_of_birth = $validatedData['date_of_birth'];
+        $a -> save();
+
+        session()->flash('message', 'User was created.');
+        return redirect()->route('users.index');
     }
 
     /**
