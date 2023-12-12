@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -21,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $users = User::orderBy('name','asc')->get();
+        return view('posts.create', ['users' => $users]);
     }
 
     /**
@@ -73,6 +75,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('message', 'Post was deleted.');
     }
 }

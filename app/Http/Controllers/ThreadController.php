@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Thread;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
 
 class ThreadController extends Controller
 {
@@ -21,7 +24,15 @@ class ThreadController extends Controller
      */
     public function create()
     {
-        return view('threads.create');
+        
+        $users = User::orderBy('name','asc')->get();
+        $categories = Category::orderBy('name','asc')->get();
+        // $posts = Post::orderBy('content','asc')->get();
+        return view('threads.create', [
+            'users' => $users, 
+            'categories' => $categories, 
+            // 'posts' => $posts
+        ]);
     }
 
     /**
@@ -79,6 +90,9 @@ class ThreadController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $thread = Thread::findOrFail($id);
+        $thread->delete();
+
+        return redirect()->route('threads.index')->with('message', 'Thread was deleted.');
     }
 }
