@@ -33,8 +33,8 @@ class UserController extends Controller
         //dd($request['name']);
 
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'name' => 'required|alpha|max:255',
+            'email' => 'required|email|max:255',
             'date_of_birth' => 'nullable|date', 
         ]);
 
