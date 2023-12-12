@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
         $a -> name = "Emre Kaygusuz";
         $a -> email = "kaygusuz.emreuk@gmail.com";
         $a -> password = "emre12345";
-        $a -> date_of_birth = "28-06-1998";
         $a -> save();
 
         User::factory()->count(10)->create();

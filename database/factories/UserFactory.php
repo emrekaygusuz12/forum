@@ -20,7 +20,6 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->email(),
             'password' => fake()->password(),
-            'date_of_birth' => fake() -> date(),
         ];
     }
 }
