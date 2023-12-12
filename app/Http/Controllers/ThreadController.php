@@ -63,9 +63,8 @@ class ThreadController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Thread $thread)
     {
-        $thread = Thread::findOrFail($id);
         return view('threads.show', ['thread' => $thread]);
     }
 

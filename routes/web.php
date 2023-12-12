@@ -33,7 +33,7 @@ Route::get('users/create', [UserController::class, 'create'])->name('users.creat
 
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name("users.destroy");
 
@@ -47,7 +47,7 @@ Route::delete('/users/{id}', [UserController::class, 'destroy'])->name("users.de
  
  Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
  
- Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
  Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name("posts.destroy");
 
@@ -60,7 +60,7 @@ Route::get('threads/create', [ThreadController::class, 'create'])->name('threads
 
 Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
 
-Route::get('/threads/{id}', [ThreadController::class, 'show'])->name('threads.show');
+Route::get('/threads/{thread}', [ThreadController::class, 'show'])->name('threads.show');
 
 Route::delete('/threads/{id}', [ThreadController::class, 'destroy'])->name("threads.destroy");
 
