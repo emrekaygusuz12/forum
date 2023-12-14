@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 /**
  * navigates to see all the users
@@ -33,7 +35,7 @@ Route::get('users/create', [UserController::class, 'create'])->name('users.creat
 
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name("users.destroy");
 
@@ -43,11 +45,11 @@ Route::delete('/users/{id}', [UserController::class, 'destroy'])->name("users.de
  */
  Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
- Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+ Route::get('/posts/create/{id}', [PostController::class, 'create'])->name('posts.create');
  
  Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
  
- Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+ Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
  Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name("posts.destroy");
 
@@ -60,7 +62,7 @@ Route::get('threads/create', [ThreadController::class, 'create'])->name('threads
 
 Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
 
-Route::get('/threads/{thread}', [ThreadController::class, 'show'])->name('threads.show');
+Route::get('/threads/{id}', [ThreadController::class, 'show'])->name('threads.show');
 
 Route::delete('/threads/{id}', [ThreadController::class, 'destroy'])->name("threads.destroy");
 
@@ -76,3 +78,21 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//register
+
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+// Route::get('login', [ThreadController::class, 'create'])->name('threads.create');
+
+// Route::post('/login', [ThreadController::class, 'store'])->name('threads.store');
+
+// Route::get('logout', [ThreadController::class, 'create'])->name('threads.create');
+
+// Route::post('/logout', [ThreadController::class, 'store'])->name('threads.store');
