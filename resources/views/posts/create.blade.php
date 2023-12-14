@@ -23,9 +23,4 @@
     
 @endsection
 
- {{-- <form method="POST" action="{{ route('threads.destroy', ['id' => $thread->id]) }}">
-            @csrf
-            @method('DELETE') <br>
-            <button type="submit">Delete Thread</button>
-        </form> --}}
 

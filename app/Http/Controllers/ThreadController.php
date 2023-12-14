@@ -49,8 +49,10 @@ class ThreadController extends Controller
         $a ->title = $validatedData['title'];
         $a ->content = $validatedData['content'];
         $a ->user_id = $validatedData['user_id'];
-        $a ->category_id = $validatedData['category_id'];
+        $a->category_id = $validatedData['category_id'];
         $a -> save();
+        $a ->categories()->attach(Category::findOrFail($validatedData['category_id']));
+        
 
         session()->flash('message', 'Thread was created.');
         return redirect()->route('threads.index');
@@ -72,22 +74,6 @@ class ThreadController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
@@ -98,3 +84,5 @@ class ThreadController extends Controller
         return redirect()->route('threads.index')->with('message', 'Thread was deleted.');
     }
 }
+
+

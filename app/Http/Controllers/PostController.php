@@ -66,7 +66,9 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $users = User::orderBy('name', 'asc')->get();
+        return view('posts.edit', ['post' => $post, 'users' => $users]);
     }
 
     /**
@@ -74,7 +76,16 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'content' => 'required|max:255',
+        ]);
+    
+        $post = Post::findOrFail($id);
+        $post->content = $validatedData['content'];
+        $post->save();
+    
+        session()->flash('message', 'Post was updated.');
+        return redirect()->route('posts.show', ['id' => $id]);
     }
 
     /**

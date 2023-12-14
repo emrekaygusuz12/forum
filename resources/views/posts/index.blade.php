@@ -13,7 +13,13 @@
 
                     @auth
                         @if (auth()->id() == $post->user_id)
-                            <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
+                            {{-- Edit button form --}}
+                            <form style="display: inline;" method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
+                                @csrf
+                                <button type="submit">Edit Post</button>
+                            </form>
+                            {{-- Delete button form --}}
+                            <form style="display: inline;" method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Delete Post</button>

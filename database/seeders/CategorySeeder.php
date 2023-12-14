@@ -21,8 +21,6 @@ class CategorySeeder extends Seeder
          $a -> save();
          $a -> category_id = 1;
          $a -> thread_id = 1;
-        //  $a -> threads()->attach(1);
-        //  $a -> threads()->attach(2);
 
          $a = Category::factory()
                     ->has(Thread::factory()->count(10), 'threads')
