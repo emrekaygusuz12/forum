@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Post Details')
+@section('title')
 
 @section('content')
-    <p> {{$post->content}}</p> <br>
-        <a href="/posts">return</a>
 
-        <form method="POST"
-                action="{{route('posts.destroy', ['id'=>$post->id]) }}">
-                @csrf
-                @method("DELETE") <br>
-                <button type ="submit">Delete</button>
-        </form>
+<div class="user-profile">
+        <h2>Post Details</h2>
+        <div class="user-info">
+                <p><strong>Thread: </strong>{{$thread->title}}</p>
+                <p><strong>Created by: </strong><a href="{{ route('users.show', ['id' => $thread->user->id]) }}">{{$thread->user->name}}</a></p>
+                <p><strong>Content: </strong>{{$post->content}}</p> 
+                <a href="/posts">return</a>
+        </div>
+</div>
+
 @endsection

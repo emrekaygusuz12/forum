@@ -29,7 +29,6 @@ class CategoryThreadsSeeder extends Seeder
         $a -> content = "dqwdfwqfqwed";
         $a -> user_id = 1;
         $a -> category_id = 1;
-        $a -> post_id = 1;
         $a -> save();
         $a -> categories()->attach(1);
         $a -> categories()->attach(2);

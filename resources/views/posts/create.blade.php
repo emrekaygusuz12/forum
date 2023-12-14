@@ -1,23 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Create Post')
+@section('title')
 
 @section('content')
-    <form method="Post" action="{{route('posts.store')}}">
+
+    <div class="center-container">
+        <div class="user-profile">
+
+            <h1>Create a Post</h1>
+
+    <form method="POST" action="{{ route('posts.store') }}">
         @csrf
-        <p>Content: <input type="text" name="content"></p>
-        <p>User: <select name="user_id">
-            @foreach ($users as $user)
-            <option value="{{$user->id}}"
-                @if ($user->id == old('user_id'))
-                    selected='selected'
-                    @endif>
-                {{$user->name}}
-            </option>
-            @endforeach
-            </select>
-           </p>
+        <p>Type Something: <input type="text" name="content"></p>
+        <input type="hidden" name="thread_id" value="{{ $thread->id }}">
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
         <input type="submit" value="Submit">
-        <a href="{{route('posts.index') }}">Cancel</a>
-</form>
+        <a href="{{ route('threads.index') }}">Cancel</a>
+    </form>
+        </div>
+    </div>
+    
 @endsection
+
+ {{-- <form method="POST" action="{{ route('threads.destroy', ['id' => $thread->id]) }}">
+            @csrf
+            @method('DELETE') <br>
+            <button type="submit">Delete Thread</button>
+        </form> --}}
+

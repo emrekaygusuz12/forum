@@ -20,12 +20,11 @@ class ThreadSeeder extends Seeder
         $a -> content = "content";
         $a -> user_id = 1;
         $a -> category_id = 1;
-        $a -> post_id = 1;
         $a -> save();
         
 
         $a = Thread::factory()
-                    ->has(Category::factory()->count(5), 'categories')
+                    ->has(Category::factory()->count(3), 'categories')
                     ->create(); 
     }
 }

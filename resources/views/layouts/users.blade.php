@@ -3,10 +3,12 @@
     <head>
         <title> @yield('title')</title>
     </head>
-    <body>
+    
         <h1> @yield('title')</h1>
         <div>
-            
-            @yield('content')
+            <article>
+                @yield('content')
+            </article>
+           
         </div>
-    </body>
+    

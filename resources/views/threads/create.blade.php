@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Create Thread')
+@section('title')
 
 @section('content')
+
+
+    <div class="center-container">
+        <h1>Create Thread</h1>
+        <div class="user-profile">
     <form method="Post" action="{{route('threads.store')}}">
         @csrf
         <p>Title: <input type="text" name="title"></p>
@@ -29,23 +34,13 @@
             @endforeach
             </select>
            </p>
-           {{-- <p>Post: <select name="post_id">
-            @foreach ($posts as $post)
-            <option value="{{$post->id}}"
-                @if ($post->id == old('post_id'))
-                    selected='selected'
-                    @endif>
-                {{$post->name}}
-            </option>
-            @endforeach
-            </select>
-           </p> --}}
+
         <input type="submit" value="Submit">
-        <a href="{{route('threads.index') }}">Cancel</a>
+        <a href="{{route('posts.index') }}">Cancel</a>
+        </div>
+    </div>
 </form>
 @endsection
-
-
 
 
    

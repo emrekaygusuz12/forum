@@ -27,11 +27,9 @@ class ThreadController extends Controller
         
         $users = User::orderBy('name','asc')->get();
         $categories = Category::orderBy('name','asc')->get();
-        // $posts = Post::orderBy('content','asc')->get();
         return view('threads.create', [
             'users' => $users, 
             'categories' => $categories, 
-            // 'posts' => $posts
         ]);
     }
 
@@ -45,7 +43,6 @@ class ThreadController extends Controller
             'content' => 'required|max:255',
             'user_id' => 'required|integer', 
             'category_id' => 'required|integer', 
-            'post_id' => 'required|integer', 
         ]);
 
         $a = new Thread;
@@ -53,7 +50,6 @@ class ThreadController extends Controller
         $a ->content = $validatedData['content'];
         $a ->user_id = $validatedData['user_id'];
         $a ->category_id = $validatedData['category_id'];
-        $a ->post_id = $validatedData['post_id'];
         $a -> save();
 
         session()->flash('message', 'Thread was created.');
@@ -63,9 +59,16 @@ class ThreadController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Thread $thread)
+    public function show($id)
     {
-        return view('threads.show', ['thread' => $thread]);
+        
+        $thread = Thread::findOrFail($id);
+
+        $categories = $thread->categories;
+        $posts = $thread->posts;
+        
+
+        return view('threads.show', compact('categories', 'thread', 'posts'));
     }
 
     /**

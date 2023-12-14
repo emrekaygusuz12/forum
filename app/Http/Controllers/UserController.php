@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use App\Models\Thread;
+use App\Models\Post;
 
 class UserController extends Controller
 {
@@ -55,9 +57,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return view('users.show', ['user' => $user]);
+        $user = User::findOrFail($id);
+        $posts = Post::where('user_id', $id)->get();
+        $threads = Thread::where('user_id', $id)->get();
+        return view('users.show', ['users' => $user, 'threads'=> $threads, 'posts'=>$posts]);
+
     }
 
     /**

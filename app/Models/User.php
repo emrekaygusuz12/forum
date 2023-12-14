@@ -19,8 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'password',
         'email',
+        'password',
     ];
 
     /**
@@ -40,11 +40,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datatime',
     ];
 
+    
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function posts(){
         return $this->hasMany(Post::class);
     }
 
     public function threads(){
-        return $this->belongsTo(Thread::class);
+        return $this->hasMany(Thread::class);
     }
 }

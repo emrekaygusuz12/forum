@@ -1,15 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'Posts')
+@section('title')
 
 @section('content')
-    <p>Please find the posts below who are currently in the forum database: </p>
-    <ul>
-        @foreach ($posts as $post)
-            <p><a href="/posts/{{$post->id}}">{{$post->content}}</a></p>
+    <div class="center-container">
+        <h1>Posts</h1>
 
-        @endforeach
-    </ul>
-    <a href="{{route('posts.create')}}"> Create Post </a> <br> <br>
-    <a href="/">return</a>
+        <div class="user-profile">
+            @foreach ($posts as $post)
+                <p>
+                    <a href="/posts/{{ $post->id }}">{{ $post->content }}</a>
+
+                    @auth
+                        @if (auth()->id() == $post->user_id)
+                            <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete Post</button>
+                            </form>
+                        @endif
+                    @endauth
+                </p>
+            @endforeach
+        </div> <br>
+    </div>
 @endsection

@@ -1,14 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title')
 
 @section('content')
-    <p>Please find the users below who are currently in the forum database: </p>
-    <ul>
-        @foreach ($users as $user)
-            <li><a href="/users/{{$user->id}}">{{$user->name}}</a></li>
-        @endforeach
-    </ul>
-    <a href="{{route('users.create')}}"> Create User </a> <br> <br>
-    <a href="/">return</a>
+
+    <div class="center-container">
+
+        <h1>Users</h1>
+
+        <div class="user-profile">
+            @foreach ($users as $user)
+                <p><a href="{{ route('users.show', ['id' => $user->id])}}">{{$user->name}}</a></p>
+            @endforeach
+        </div> <br>
+
+
+    </div>
+
 @endsection

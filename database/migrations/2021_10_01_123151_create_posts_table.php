@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->longText('content');
             $table->bigInteger('user_id')->unsigned(); //holds the user id for post
+            $table->bigInteger('thread_id')->unsigned(); //holds the user id for thread
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
-                        ->onDelete('cascade')->onUpdate('cascade');
+                        ->onDelete('cascade');
+            $table->foreign('thread_id')->references('id')->on('threads')
+                        ->onDelete('cascade');
         });
     }
 

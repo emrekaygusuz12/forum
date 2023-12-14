@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Thread;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -20,10 +22,11 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $thread_id)
     {
-        $users = User::orderBy('name','asc')->get();
-        return view('posts.create', ['users' => $users]);
+        $users = User::orderBy('name', 'asc')->get();
+        $thread = Thread::findOrFail($thread_id);
+        return view('posts.create', ['users' => $users, 'thread' => $thread]);
     }
 
     /**
@@ -34,23 +37,28 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'content' => 'required|max:255',
             'user_id' => 'required|integer',  
+            'thread_id' => 'required|integer'
         ]);
 
         $a = new Post;
         $a ->content = $validatedData['content'];
         $a ->user_id = $validatedData['user_id'];
+        $a->thread_id = $validatedData['thread_id'];
         $a ->save();
 
         session()->flash('message', 'Post was created.');
-        return redirect()->route('posts.index');
+        return redirect()->route('threads.show', ['id' => $validatedData['thread_id']]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts.show', ['post' => $post]);
+        $post = Post::findOrFail($id);
+        $thread = Thread::findOrFail($post->thread_id);
+        $user = User::findOrFail($post->user_id);
+        return view('posts.show', ['thread'=>$post->thread, 'post' => $post, 'user' => $user]);
     }
 
     /**

@@ -17,6 +17,7 @@ class PostSeeder extends Seeder
         $a = new Post;
         $a -> content = "This is the first post.";
         $a -> user_id = 1;
+        $a -> thread_id = 1;
         $a -> save();
 
         $a = Post::factory()
