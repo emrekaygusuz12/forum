@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-//register
+//register-login-logout
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
@@ -89,10 +89,6 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-// Route::get('login', [ThreadController::class, 'create'])->name('threads.create');
-
-// Route::post('/login', [ThreadController::class, 'store'])->name('threads.store');
-
-// Route::get('logout', [ThreadController::class, 'create'])->name('threads.create');
-
-// Route::post('/logout', [ThreadController::class, 'store'])->name('threads.store');
+//edit and update
+Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');

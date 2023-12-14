@@ -24,7 +24,7 @@ class ThreadSeeder extends Seeder
         
 
         $a = Thread::factory()
-                    ->has(Category::factory()->count(3), 'categories')
+                    ->has(Category::factory()->count(15), 'categories')
                     ->create(); 
     }
 }

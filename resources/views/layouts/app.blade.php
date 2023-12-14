@@ -11,8 +11,17 @@
             text-align: center;
         }
 
-        .user-profile {
+        article{
+            flex;
             max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .user-profile {
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ddd;
@@ -20,7 +29,29 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        h6{
+            font-size: 0.3cm;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
 
+        h5{
+            font-size: 0.5cm;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+
+        h4{
+            color: red;
+            font-size: 0.3cm;
+        }
+        
+
+        img{
+            vertical-align: middle;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
         .user-profile {
             max-width: 600px;
             margin: 0 auto;
@@ -74,6 +105,7 @@
 
         p {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 14px;
         }
 
         ul {
@@ -95,6 +127,8 @@
             padding: 14px 16px;
             text-decoration: none;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border-right: 1px solid white; /* Add this line to create a border */
+            border-left: 1px solid white;
         }
 
         li b {
@@ -130,6 +164,9 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             padding: 0.8cm;            
         }
+
+
+        
     </style>
 </head>
 
@@ -162,14 +199,11 @@
     @endif
 
     @if ($errors->any())
-    <div>
-        Errors:
-        <ul>
+            <h4>
             @foreach ($errors->all() as $error)
             <li>{{$error}}</li>
             @endforeach
-        </ul>
-    </div>
+        </h4>
     @endif
 
     <div>
