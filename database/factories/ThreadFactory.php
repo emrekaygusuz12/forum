@@ -25,7 +25,7 @@ class ThreadFactory extends Factory
 
             'user_id'=> User::inRandomOrder()->first()->id,
             'category_id'=> Category::inRandomOrder()->first()->id,
-            // 'post_id'=> Post::inRandomOrder()->first()->id,
+
         ];
     }
 }

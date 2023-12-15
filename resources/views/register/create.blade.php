@@ -7,14 +7,14 @@
     <style>
         main {
             
-            max-width: 32rem; /* equivalent to max-w-lg in Tailwind CSS */
-            margin-left: auto; /* equivalent to mx-auto in Tailwind CSS */
-            margin-right: auto; /* equivalent to mx-auto in Tailwind CSS */
-            margin-top: 2.5rem; /* equivalent to mt-10 in Tailwind CSS */
-            background-color: #f3f4f6; /* equivalent to bg-gray-100 in Tailwind CSS */
-            border: 1px solid #e5e7eb; /* equivalent to border and border-gray-200 in Tailwind CSS */
-            padding: 1.5rem; /* equivalent to p-6 in Tailwind CSS */
-            border-radius: 1rem; /* equivalent to rounded-xl in Tailwind CSS */
+            max-width: 32rem; 
+            margin-left: auto; 
+            margin-right: auto; 
+            margin-top: 2.5rem; 
+            background-color: #f3f4f6; 
+            border: 1px solid #e5e7eb; 
+            padding: 1.5rem; 
+            border-radius: 1rem; 
         }
 
         h1{

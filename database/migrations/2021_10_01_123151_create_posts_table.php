@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->longText('content');
-            $table->bigInteger('user_id')->unsigned(); //holds the user id for post
-            $table->bigInteger('thread_id')->unsigned(); //holds the user id for thread
+            $table->bigInteger('user_id')->unsigned(); 
+            $table->bigInteger('thread_id')->unsigned(); 
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')

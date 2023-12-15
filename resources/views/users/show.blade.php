@@ -19,6 +19,15 @@
                     <a href="{{ route('posts.show', ['id' => $post->id]) }}">{{$post->content}}</a><br>
                 @endforeach
             </p>
+            <p><strong>Comments:</strong><br>
+                @if ($users->comments)
+                    @foreach ($users->comments()->get() as $comment) <br>
+                        <x-post-comment :comment="$comment"/>
+                    @endforeach
+                @else
+                    No comments available.
+                @endif
+            </p>
         </div>
         <div class="navigation">
             <a href="{{ route('users.index') }}">Back</a>

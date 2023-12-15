@@ -31,10 +31,6 @@
                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                 <button type="submit">Post</button>
            </header>
-           
-           
-                
-           
         </form>
         @endauth
 
