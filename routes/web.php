@@ -6,6 +6,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\PostCommentsController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,3 +94,8 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 //edit and update
 Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+
+//comments
+
+Route::post('/posts/comments', [PostCommentsController::class, 'store'])->name('comments.store');;
+

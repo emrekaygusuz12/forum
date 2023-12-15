@@ -44,7 +44,31 @@
             color: red;
             font-size: 0.3cm;
         }
+
+        h3{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: green;
+            flex;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
         
+        header{
+            flex;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
 
         img{
             vertical-align: middle;
@@ -165,6 +189,16 @@
             padding: 0.8cm;            
         }
 
+        textarea{
+            width: 15.8cm;
+            height: 1cm;
+        }
+        
+        button{
+            background-color: blue;
+            color: white;
+            
+        }
 
         
     </style>

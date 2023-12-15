@@ -16,7 +16,29 @@
 </div> <br>
 
 <section>
-    @foreach ($post->comments as $comment) <br>
+        @auth
+        <form method="POST" action="{{route('comments.store')}}">
+           @csrf
+           
+           <header>
+                <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="" width="30" height="30"> <br>
+                
+                 {{auth()->user()->name}} 
+                 
+                <h3>Want to participate?</h3> <br>
+                <textarea name="content" id="" cols="30" rows="10" placeholder="Say anything..."></textarea>
+                <input type="hidden" name="post_id" value="{{$post->id}}">
+                <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                <button type="submit">Post</button>
+           </header>
+           
+           
+                
+           
+        </form>
+        @endauth
+
+    @foreach ($post->comments()->get() as $comment) <br>
         <x-post-comment :comment="$comment"/>
     @endforeach
 </section>

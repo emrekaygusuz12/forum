@@ -8,9 +8,9 @@
 
         <div class="user-profile">
             @foreach ($posts as $post)
+            
                 <p>
                     <a href="/posts/{{ $post->id }}">{{ $post->content }}</a>
-
                     @auth
                         @if (auth()->id() == $post->user_id)
                             {{-- Edit button form --}}
@@ -28,6 +28,8 @@
                     @endauth
                 </p>
             @endforeach
+            
         </div> <br>
     </div>
+{{$posts->links()}}
 @endsection

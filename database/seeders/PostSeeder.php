@@ -20,10 +20,6 @@ class PostSeeder extends Seeder
         $a -> thread_id = 1;
         $a -> save();
 
-        // $a = Post::factory()
-        //             ->has(User::factory()->count(20), 'user')
-        //             ->create(); 
-
-        Post::factory()->count(25)->create();
+        Post::factory()->count(100)->create();
     }
 }
